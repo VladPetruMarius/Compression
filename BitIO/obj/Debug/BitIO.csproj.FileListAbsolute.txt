@@ -1,0 +1,5 @@
+D:\ACS\Semestrul II\Advanced Compression Methods\Laboratory\Compression\BitIO\bin\Debug\BitIO.dll
+D:\ACS\Semestrul II\Advanced Compression Methods\Laboratory\Compression\BitIO\bin\Debug\BitIO.pdb
+D:\ACS\Semestrul II\Advanced Compression Methods\Laboratory\Compression\BitIO\obj\Debug\BitIO.csprojAssemblyReference.cache
+D:\ACS\Semestrul II\Advanced Compression Methods\Laboratory\Compression\BitIO\obj\Debug\BitIO.dll
+D:\ACS\Semestrul II\Advanced Compression Methods\Laboratory\Compression\BitIO\obj\Debug\BitIO.pdb
