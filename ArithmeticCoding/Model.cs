@@ -35,7 +35,7 @@ namespace ArithmeticCoding
                 index_to_char[i + 1] = i;
             }
 
-            for(int i = 0; i<=ModelParams.No_Of_Symbols; i++)
+            for (int i = 0; i <= ModelParams.No_Of_Symbols; i++)
             {
                 freq[i] = 1;
                 cum_freq[i] = ModelParams.No_Of_Symbols - i;
@@ -47,14 +47,14 @@ namespace ArithmeticCoding
         public void Update(int symbol)
         {
             int i;
-            if(cum_freq[0] == ModelParams.MAX_FREQUENCY)
+            if (cum_freq[0] == ModelParams.MAX_FREQUENCY)
             {
-                int cum;                /* are at their maximum.    */
+                int cum;
                 cum = 0;
                 for (i = ModelParams.No_Of_Symbols; i >= 0; i--)
-                {   /* If so, halve all the     */
-                    freq[i] = (freq[i] + 1) / 2;        /* counts (keeping them     */
-                    cum_freq[i] = cum;          /* non-zero).               */
+                {
+                    freq[i] = (freq[i] + 1) / 2;
+                    cum_freq[i] = cum;
                     cum += freq[i];
 
                 }
@@ -82,8 +82,7 @@ namespace ArithmeticCoding
             }
         }
 
-
-        public int[] CharToIndex 
+        public int[] CharToIndex
         {
             get
             {
@@ -95,7 +94,7 @@ namespace ArithmeticCoding
             }
         }
 
-        public int[] IndexToChar 
+        public int[] IndexToChar
         {
             get
             {
@@ -107,7 +106,7 @@ namespace ArithmeticCoding
             }
         }
 
-        public int[] CumulativeFrequency 
+        public int[] CumulativeFrequency
         {
             get
             {

@@ -73,7 +73,7 @@ namespace ArithmeticCoding
                     break;
                 }
 
-                low <<=1;
+                low <<= 1;
                 high <<= 1;
                 high |= 1;
                 value <<= 1;

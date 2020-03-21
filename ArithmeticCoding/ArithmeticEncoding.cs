@@ -11,7 +11,7 @@ namespace ArithmeticCoding
     {
         private uint low;
         private uint high;
-        
+
         private int bits_to_follow;
 
         private BitWriter writer;
@@ -58,7 +58,7 @@ namespace ArithmeticCoding
                 }
 
                 low <<= 1;
-                high <<=1;
+                high <<= 1;
                 high |= 1;
             }
         }
