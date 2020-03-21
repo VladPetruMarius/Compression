@@ -12,14 +12,12 @@ namespace ArithmeticCoding
     {
         static void Main(string[] args)
         {
-            string filename = "test.txt";
-            string encode_file = "test.bin";
+            string filename = "flower.jpg";
+            string encode_file = "flower.bin";
 
-            string decode_file = "test_dec.txt";
+            string decode_file = "flower_dec.jpg";
 
             FileStream stream = new FileStream(filename, FileMode.OpenOrCreate);
-
-          //  StreamReader reader = new StreamReader(filename);
 
             BitWriter writer = new BitWriter(encode_file);
 
@@ -41,20 +39,18 @@ namespace ArithmeticCoding
                     break;
                 }
 
-                symbol = model.char_to_index[ch];
-                encode.Encode(symbol, model.cum_freq);
+                symbol = model.CharToIndex[ch];
+                encode.Encode(symbol, model.CumulativeFrequency);
                 model.Update(symbol);
             }
 
-            encode.Encode(Constants.No_Of_Symbols, model.cum_freq);
+            encode.Encode(ModelParams.No_Of_Symbols, model.CumulativeFrequency);
             encode.Flush();
             writer.Close();
 
             BitReader read = new BitReader(encode_file);
 
             stream = new FileStream(decode_file, FileMode.OpenOrCreate);
-
-          //  StreamWriter write = new StreamWriter(decode_file);
 
             ArithmeticDecoding decode = new ArithmeticDecoding(read);
 
@@ -64,14 +60,14 @@ namespace ArithmeticCoding
             for (; ; )
             {
                 int ch, symbol;
-                symbol = decode.Decode(model.cum_freq);
+                symbol = decode.Decode(model.CumulativeFrequency);
 
-                if (symbol == Constants.EOF_Symbol)
+                if (symbol == ModelParams.EOF_Symbol)
                 {
                     break;
                 }
 
-                ch = model.index_to_char[symbol];
+                ch = model.IndexToChar[symbol];
 
                 stream.WriteByte((byte)ch);
                 model.Update(symbol);

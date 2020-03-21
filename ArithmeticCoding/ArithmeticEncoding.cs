@@ -23,11 +23,10 @@ namespace ArithmeticCoding
 
         public void Initialize()
         {
-            low = Constants.Low;
-            high = Constants.High;
+            low = ModelParams.LOW_VALUE;
+            high = ModelParams.HIGH_VALUE;
             bits_to_follow = 0;
         }
-
 
         public void Encode(int symbol, int[] cum_freq)
         {
@@ -37,36 +36,37 @@ namespace ArithmeticCoding
 
             for (; ; )
             {
-                if (high < Constants.Half)
+                if (high < ModelParams.HALF)
                 {
                     bit_plus_follow(0);
                 }
-                else if (low >= Constants.Half)
+                else if (low >= ModelParams.HALF)
                 {
                     bit_plus_follow(1);
-                    low -= Constants.Half;
-                    high -= Constants.Half;
+                    low -= ModelParams.HALF;
+                    high -= ModelParams.HALF;
                 }
-                else if (low >= Constants.First_Quarter && high < Constants.Third_Quarter)
+                else if (low >= ModelParams.FIST_QUARTER && high < ModelParams.THIRD_QUARTER)
                 {
                     bits_to_follow++;
-                    low -= Constants.First_Quarter;
-                    high -= Constants.First_Quarter;
+                    low -= ModelParams.FIST_QUARTER;
+                    high -= ModelParams.FIST_QUARTER;
                 }
                 else
                 {
                     break;
                 }
 
-                low = 2 * low;
-                high = 2 * high + 1;
+                low <<= 1;
+                high <<=1;
+                high |= 1;
             }
         }
 
         public void Flush()
         {
             bits_to_follow++;
-            if (low < Constants.First_Quarter)
+            if (low < ModelParams.FIST_QUARTER)
             {
                 bit_plus_follow(0);
             }

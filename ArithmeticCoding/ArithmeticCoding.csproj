@@ -43,7 +43,7 @@
   <ItemGroup>
     <Compile Include="ArithmeticDecoding.cs" />
     <Compile Include="ArithmeticEncoding.cs" />
-    <Compile Include="Constants.cs" />
+    <Compile Include="ModelParams.cs" />
     <Compile Include="Model.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -25,15 +25,15 @@ namespace ArithmeticCoding
         {
             value = 0;
 
-            for (int i = 1; i <= Constants.BitsUsed; i++)
+            for (int i = 1; i <= ModelParams.BITS_USED; i++)
             {
-                value = 2 * value + (uint)reader.ReadBit();
+                value <<= 1;
+                value |= (uint)reader.ReadBit();
             }
 
-            low = Constants.Low;
-            high = Constants.High;
+            low = ModelParams.LOW_VALUE;
+            high = ModelParams.HIGH_VALUE;
         }
-
 
         public int Decode(int[] cum_freq)
         {
@@ -52,30 +52,32 @@ namespace ArithmeticCoding
             Console.WriteLine(symbol);
             for (; ; )
             {
-                if (high < Constants.Half)
+                if (high < ModelParams.HALF)
                 {
                     //do nothings
                 }
-                else if (low >= Constants.Half)
+                else if (low >= ModelParams.HALF)
                 {
-                    value -= Constants.Half;
-                    low -= Constants.Half;
-                    high -= Constants.Half;
+                    value -= ModelParams.HALF;
+                    low -= ModelParams.HALF;
+                    high -= ModelParams.HALF;
                 }
-                else if (low >= Constants.First_Quarter && high < Constants.Third_Quarter)
+                else if (low >= ModelParams.FIST_QUARTER && high < ModelParams.THIRD_QUARTER)
                 {
-                    value -= Constants.Third_Quarter;
-                    low -= Constants.Third_Quarter;
-                    high -= Constants.Third_Quarter;
+                    value -= ModelParams.THIRD_QUARTER;
+                    low -= ModelParams.THIRD_QUARTER;
+                    high -= ModelParams.THIRD_QUARTER;
                 }
                 else
                 {
                     break;
                 }
 
-                low = 2 * low;
-                high = 2 * high + 1;
-                value = 2 * value + (uint)reader.ReadBit();
+                low <<=1;
+                high <<= 1;
+                high |= 1;
+                value <<= 1;
+                value |= (uint)reader.ReadBit();
             }
 
             return symbol;
