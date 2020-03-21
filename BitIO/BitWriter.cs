@@ -47,9 +47,6 @@ namespace BitIO
             {
                 Console.WriteLine(buffer);
                 stream.WriteByte((byte)buffer);      /* write buffer to file */
-                buffer = 0x00;
-
-               
             }
         }
 
@@ -76,7 +73,6 @@ namespace BitIO
 
             bitCount = 0;
             buffer = 0x00;
-
             stream.Close();
         }
 
