@@ -15,21 +15,15 @@ namespace BitIO
 
         private int bitCount;
 
-        private BinaryReader binaryReader;
-
         public BitReader(string filename)
         {
             stream = new FileStream(filename, FileMode.OpenOrCreate);
-            binaryReader = new BinaryReader(stream);
-
             bitCount = 0;
         }
 
         public BitReader(FileStream stream)
         {
             this.stream = stream;
-            binaryReader = new BinaryReader(this.stream);
-
             bitCount = 0;
         }
 
@@ -67,8 +61,6 @@ namespace BitIO
 
         public void Close()
         {
-           // binaryReader.Close();
-
             stream.Close();
         }
 
