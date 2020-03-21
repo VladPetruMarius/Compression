@@ -16,6 +16,7 @@ namespace ArithmeticCoding
 
         private BitWriter writer;
 
+        private uint mask;
         public ArithmeticEncoding(BitWriter writer)
         {
             this.writer = writer;
@@ -26,6 +27,8 @@ namespace ArithmeticCoding
             low = ModelParams.LOW_VALUE;
             high = ModelParams.HIGH_VALUE;
             bits_to_follow = 0;
+
+            mask = ModelParams.HIGH_VALUE >> 2;
         }
 
         public void Encode(int symbol, int[] cum_freq)
@@ -36,21 +39,23 @@ namespace ArithmeticCoding
 
             for (; ; )
             {
-                if (high < ModelParams.HALF)
+                if ((low & ModelParams.HALF) == (high & ModelParams.HALF))
                 {
-                    bit_plus_follow(0);
+                    int bit = (int)((high & ModelParams.HALF) >> (ModelParams.BITS_USED - 1));
+
+                    writer.WriteBit(bit);
+                    while (bits_to_follow > 0)
+                    {
+                        bit = (int)((~high & ModelParams.HALF) >> (ModelParams.BITS_USED - 1));
+                        writer.WriteBit(bit);
+                        bits_to_follow--;
+                    }
                 }
-                else if (low >= ModelParams.HALF)
-                {
-                    bit_plus_follow(1);
-                    low -= ModelParams.HALF;
-                    high -= ModelParams.HALF;
-                }
-                else if (low >= ModelParams.FIST_QUARTER && high < ModelParams.THIRD_QUARTER)
+                else if ((low & ModelParams.FIRST_QUARTER) != 0 && (high & ModelParams.FIRST_QUARTER) == 0)
                 {
                     bits_to_follow++;
-                    low -= ModelParams.FIST_QUARTER;
-                    high -= ModelParams.FIST_QUARTER;
+                    low &= mask;
+                    high |= ModelParams.FIRST_QUARTER;
                 }
                 else
                 {
@@ -65,24 +70,15 @@ namespace ArithmeticCoding
 
         public void Flush()
         {
-            bits_to_follow++;
-            if (low < ModelParams.FIST_QUARTER)
-            {
-                bit_plus_follow(0);
-            }
-            else
-            {
-                bit_plus_follow(1);
-            }
-        }
-
-        private void bit_plus_follow(int bit)
-        {
+            int bit = (int)((low & ModelParams.FIRST_QUARTER) >> (ModelParams.BITS_USED - 2));
             writer.WriteBit(bit);
+
+            bits_to_follow++;
 
             while (bits_to_follow > 0)
             {
-                writer.WriteBit(~bit);
+                bit = (int)((~low & ModelParams.FIRST_QUARTER) >> (ModelParams.BITS_USED - 2));
+                writer.WriteBit(bit);
                 bits_to_follow--;
             }
         }

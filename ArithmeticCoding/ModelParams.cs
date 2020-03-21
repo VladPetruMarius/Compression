@@ -16,9 +16,9 @@ namespace ArithmeticCoding
 
         public static readonly uint HALF = 1u << (BITS_USED - 1);
 
-        public static readonly uint FIST_QUARTER = (1u << (BITS_USED - 1)) >> 1;
+        public static readonly uint FIRST_QUARTER = (1u << (BITS_USED - 1)) >> 1;
 
-        public static readonly uint THIRD_QUARTER = HALF | FIST_QUARTER;
+        public static readonly uint THIRD_QUARTER = HALF | FIRST_QUARTER;
 
         public static readonly uint MAX_FREQUENCY = (1u << (BITS_USED - 2)) - 1;
 
