@@ -17,11 +17,11 @@ namespace ArithmeticCoding
 
             string decode_file = "test_dec.txt";
 
-            StreamReader reader = new StreamReader(filename);
+            FileStream stream = new FileStream(filename, FileMode.OpenOrCreate);
+
+          //  StreamReader reader = new StreamReader(filename);
 
             BitWriter writer = new BitWriter(encode_file);
-
-
 
             Model model = new Model();
 
@@ -34,7 +34,7 @@ namespace ArithmeticCoding
             {
                 int ch, symbol;
 
-                ch = reader.Read();
+                ch = stream.ReadByte();
 
                 if (ch == -1)
                 {
@@ -52,7 +52,9 @@ namespace ArithmeticCoding
 
             BitReader read = new BitReader(encode_file);
 
-            StreamWriter write = new StreamWriter(decode_file);
+            stream = new FileStream(decode_file, FileMode.OpenOrCreate);
+
+          //  StreamWriter write = new StreamWriter(decode_file);
 
             ArithmeticDecoding decode = new ArithmeticDecoding(read);
 
@@ -70,13 +72,13 @@ namespace ArithmeticCoding
                 }
 
                 ch = model.index_to_char[symbol];
-                
-                write.Write((char)ch);
+
+                stream.WriteByte((byte)ch);
                 model.Update(symbol);
             }
 
             read.Close();
-            write.Close();
+            stream.Close();
 
         }
     }
