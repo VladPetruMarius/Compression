@@ -16,6 +16,8 @@ namespace ArithmeticCoding
 
         private BitReader reader;
 
+        private uint mask;
+
         public ArithmeticDecoding(BitReader reader)
         {
             this.reader = reader;
@@ -33,6 +35,7 @@ namespace ArithmeticCoding
 
             low = ModelParams.LOW_VALUE;
             high = ModelParams.HIGH_VALUE;
+            mask = ModelParams.HIGH_VALUE >> 2;
         }
 
         public int Decode(int[] cum_freq)
@@ -52,21 +55,15 @@ namespace ArithmeticCoding
             Console.WriteLine(symbol);
             for (; ; )
             {
-                if (high < ModelParams.HALF)
+                if ((low & ModelParams.HALF) == (high & ModelParams.HALF))
                 {
                     //do nothings
                 }
-                else if (low >= ModelParams.HALF)
+                else if ((low & ModelParams.FIRST_QUARTER) == ModelParams.FIRST_QUARTER && (high & ModelParams.FIRST_QUARTER) == 0)
                 {
-                    value -= ModelParams.HALF;
-                    low -= ModelParams.HALF;
-                    high -= ModelParams.HALF;
-                }
-                else if (low >= ModelParams.FIST_QUARTER && high < ModelParams.THIRD_QUARTER)
-                {
-                    value -= ModelParams.THIRD_QUARTER;
-                    low -= ModelParams.THIRD_QUARTER;
-                    high -= ModelParams.THIRD_QUARTER;
+                    value ^= ModelParams.FIRST_QUARTER;
+                    low &= mask;
+                    high |= ModelParams.FIRST_QUARTER;
                 }
                 else
                 {
