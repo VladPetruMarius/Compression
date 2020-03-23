@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.pictureBoxOriginal = new System.Windows.Forms.PictureBox();
-            this.buttonLoad = new System.Windows.Forms.Button();
+            this.buttonLoadOrig = new System.Windows.Forms.Button();
             this.buttonEncode = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -87,14 +87,14 @@
             this.pictureBoxOriginal.TabIndex = 0;
             this.pictureBoxOriginal.TabStop = false;
             // 
-            // buttonLoad
+            // buttonLoadOrig
             // 
-            this.buttonLoad.Location = new System.Drawing.Point(12, 284);
-            this.buttonLoad.Name = "buttonLoad";
-            this.buttonLoad.Size = new System.Drawing.Size(79, 29);
-            this.buttonLoad.TabIndex = 1;
-            this.buttonLoad.Text = "Load";
-            this.buttonLoad.UseVisualStyleBackColor = true;
+            this.buttonLoadOrig.Location = new System.Drawing.Point(12, 284);
+            this.buttonLoadOrig.Name = "buttonLoadOrig";
+            this.buttonLoadOrig.Size = new System.Drawing.Size(79, 29);
+            this.buttonLoadOrig.TabIndex = 1;
+            this.buttonLoadOrig.Text = "Load";
+            this.buttonLoadOrig.UseVisualStyleBackColor = true;
             // 
             // buttonEncode
             // 
@@ -437,7 +437,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(896, 284);
+            this.button2.Location = new System.Drawing.Point(896, 282);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(79, 29);
             this.button2.TabIndex = 17;
@@ -446,16 +446,16 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(810, 284);
+            this.button3.Location = new System.Drawing.Point(811, 282);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(79, 29);
             this.button3.TabIndex = 16;
-            this.button3.Text = "Encode";
+            this.button3.Text = "Decode";
             this.button3.UseVisualStyleBackColor = true;
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(724, 284);
+            this.button4.Location = new System.Drawing.Point(719, 282);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(79, 29);
             this.button4.TabIndex = 15;
@@ -472,7 +472,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(805, 666);
+            this.button5.Location = new System.Drawing.Point(800, 665);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(79, 29);
             this.button5.TabIndex = 19;
@@ -521,7 +521,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.buttonEncode);
-            this.Controls.Add(this.buttonLoad);
+            this.Controls.Add(this.buttonLoadOrig);
             this.Controls.Add(this.pictureBoxOriginal);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -547,7 +547,7 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBoxOriginal;
-        private System.Windows.Forms.Button buttonLoad;
+        private System.Windows.Forms.Button buttonLoadOrig;
         private System.Windows.Forms.Button buttonEncode;
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.GroupBox groupBox1;
