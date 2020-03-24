@@ -65,7 +65,7 @@
             this.buttonSaveDecode = new System.Windows.Forms.Button();
             this.buttonDecode = new System.Windows.Forms.Button();
             this.buttonLoadEncode = new System.Windows.Forms.Button();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chartHistogram = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.buttonRefreshHisto = new System.Windows.Forms.Button();
             this.textBoxScale = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -78,7 +78,7 @@
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEncode)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartHistogram)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBoxOriginal
@@ -464,17 +464,17 @@
             this.buttonLoadEncode.Text = "Load";
             this.buttonLoadEncode.UseVisualStyleBackColor = true;
             // 
-            // chart1
+            // chartHistogram
             // 
-            this.chart1.Location = new System.Drawing.Point(637, 330);
-            this.chart1.Name = "chart1";
-            this.chart1.Size = new System.Drawing.Size(684, 313);
-            this.chart1.TabIndex = 18;
-            this.chart1.Text = "Histogram";
+            this.chartHistogram.Location = new System.Drawing.Point(637, 330);
+            this.chartHistogram.Name = "chartHistogram";
+            this.chartHistogram.Size = new System.Drawing.Size(684, 313);
+            this.chartHistogram.TabIndex = 18;
+            this.chartHistogram.Text = "Histogram";
             title1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             title1.Name = "Histogram";
             title1.Text = "Histogram";
-            this.chart1.Titles.Add(title1);
+            this.chartHistogram.Titles.Add(title1);
             // 
             // buttonRefreshHisto
             // 
@@ -521,7 +521,7 @@
             this.Controls.Add(this.textBoxScale);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.buttonRefreshHisto);
-            this.Controls.Add(this.chart1);
+            this.Controls.Add(this.chartHistogram);
             this.Controls.Add(this.buttonSaveDecode);
             this.Controls.Add(this.buttonDecode);
             this.Controls.Add(this.buttonLoadEncode);
@@ -555,7 +555,7 @@
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEncode)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartHistogram)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -599,7 +599,7 @@
         private System.Windows.Forms.Button buttonSaveDecode;
         private System.Windows.Forms.Button buttonDecode;
         private System.Windows.Forms.Button buttonLoadEncode;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartHistogram;
         private System.Windows.Forms.Button buttonRefreshHisto;
         private System.Windows.Forms.TextBox textBoxScale;
         private System.Windows.Forms.Label label3;
