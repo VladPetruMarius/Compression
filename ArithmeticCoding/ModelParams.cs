@@ -27,6 +27,6 @@ namespace ArithmeticCoding
 
         public static int No_Of_Symbols = No_Of_Chars + 1;
 
-        public static int EOF_Symbol = No_Of_Chars + 1;
+        public static int EOF_Symbol = No_Of_Chars;
     }
 }
