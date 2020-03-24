@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.pictureBoxOriginal = new System.Windows.Forms.PictureBox();
             this.buttonLoadOrig = new System.Windows.Forms.Button();
             this.buttonEncode = new System.Windows.Forms.Button();
@@ -83,9 +83,11 @@
             // 
             // pictureBoxOriginal
             // 
+            this.pictureBoxOriginal.Image = global::NearLosslessPredictiveCoder.Properties.Resources.original;
             this.pictureBoxOriginal.Location = new System.Drawing.Point(12, 12);
             this.pictureBoxOriginal.Name = "pictureBoxOriginal";
             this.pictureBoxOriginal.Size = new System.Drawing.Size(256, 256);
+            this.pictureBoxOriginal.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxOriginal.TabIndex = 0;
             this.pictureBoxOriginal.TabStop = false;
             // 
@@ -280,9 +282,11 @@
             // 
             // pictureBoxError
             // 
+            this.pictureBoxError.Image = global::NearLosslessPredictiveCoder.Properties.Resources.error;
             this.pictureBoxError.Location = new System.Drawing.Point(355, 12);
             this.pictureBoxError.Name = "pictureBoxError";
             this.pictureBoxError.Size = new System.Drawing.Size(256, 256);
+            this.pictureBoxError.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxError.TabIndex = 6;
             this.pictureBoxError.TabStop = false;
             // 
@@ -431,9 +435,11 @@
             // 
             // pictureBoxEncode
             // 
+            this.pictureBoxEncode.Image = global::NearLosslessPredictiveCoder.Properties.Resources.decoded;
             this.pictureBoxEncode.Location = new System.Drawing.Point(800, 12);
             this.pictureBoxEncode.Name = "pictureBoxEncode";
             this.pictureBoxEncode.Size = new System.Drawing.Size(256, 256);
+            this.pictureBoxEncode.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxEncode.TabIndex = 14;
             this.pictureBoxEncode.TabStop = false;
             // 
@@ -471,10 +477,10 @@
             this.chartHistogram.Size = new System.Drawing.Size(684, 313);
             this.chartHistogram.TabIndex = 18;
             this.chartHistogram.Text = "Histogram";
-            title1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            title1.Name = "Histogram";
-            title1.Text = "Histogram";
-            this.chartHistogram.Titles.Add(title1);
+            title3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title3.Name = "Histogram";
+            title3.Text = "Histogram";
+            this.chartHistogram.Titles.Add(title3);
             // 
             // buttonRefreshHisto
             // 
