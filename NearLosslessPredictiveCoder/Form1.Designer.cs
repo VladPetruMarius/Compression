@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.pictureBoxOriginal = new System.Windows.Forms.PictureBox();
             this.buttonLoadOrig = new System.Windows.Forms.Button();
             this.buttonEncode = new System.Windows.Forms.Button();
@@ -477,10 +477,10 @@
             this.chartHistogram.Size = new System.Drawing.Size(684, 313);
             this.chartHistogram.TabIndex = 18;
             this.chartHistogram.Text = "Histogram";
-            title3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            title3.Name = "Histogram";
-            title3.Text = "Histogram";
-            this.chartHistogram.Titles.Add(title3);
+            title2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title2.Name = "Histogram";
+            title2.Text = "Histogram";
+            this.chartHistogram.Titles.Add(title2);
             // 
             // buttonRefreshHisto
             // 
@@ -497,7 +497,7 @@
             this.textBoxScale.Name = "textBoxScale";
             this.textBoxScale.Size = new System.Drawing.Size(100, 22);
             this.textBoxScale.TabIndex = 21;
-            this.textBoxScale.Text = "12.3";
+            this.textBoxScale.Text = "0.12";
             // 
             // label3
             // 
@@ -510,7 +510,6 @@
             // 
             // buttonOrigDiffDecod
             // 
-            this.buttonOrigDiffDecod.Enabled = false;
             this.buttonOrigDiffDecod.Location = new System.Drawing.Point(639, 706);
             this.buttonOrigDiffDecod.Name = "buttonOrigDiffDecod";
             this.buttonOrigDiffDecod.Size = new System.Drawing.Size(122, 29);

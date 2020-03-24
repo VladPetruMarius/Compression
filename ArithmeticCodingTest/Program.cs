@@ -12,10 +12,10 @@ namespace ArithmeticCoding
     {
         static void Main(string[] args)
         {
-            string filename = "test.txt";
-            string encode_file = "test.bin";
+            string filename = "flower.txt";
+            string encode_file = "flower.bin";
 
-            string decode_file = "test_dec.txt";
+            string decode_file = "flower_dec.jpg";
 
             FileStream stream = new FileStream(filename, FileMode.OpenOrCreate);
 
